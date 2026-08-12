@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Civic Connect Dashboard</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:#f5f7ff;
+}
+
+/* SIDEBAR */
+.sidebar{
+position:fixed;
+left:0;
+top:0;
+width:300px;
+height:100vh;
+background:linear-gradient(180deg,#07142c,#0B57D0);
+padding:30px;
+color:white;
+overflow:auto;
+}
+
+.logo{
+font-size:36px;
+text-align:center;
+margin-bottom:40px;
+}
+
+/* MENU LINKS */
+.menu{
+display:flex;
+flex-direction:column;
+gap:14px;
+}
+
+.item{
+padding:18px;
+border-radius:14px;
+cursor:pointer;
+font-size:22px;
+text-decoration:none;
+color:white;
+display:block;
+}
+
+.item:hover{
+background:rgba(255,255,255,0.12);
+}
+
+.active{
+background:rgba(255,255,255,0.20);
+}
+
+/* CONTENT */
+.content{
+margin-left:300px;
+padding:40px;
+}
+
+.top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:30px;
+}
+
+.profile{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.profile img{
+width:60px;
+height:60px;
+border-radius:50%;
+}
+
+/* CARDS */
+.cards{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
+
+.card1{
+background:white;
+padding:30px;
+border-radius:22px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.num{
+font-size:44px;
+font-weight:bold;
+}
+
+.blue{border-left:8px solid #0B57D0;}
+.green{border-left:8px solid green;}
+.orange{border-left:8px solid orange;}
+.red{border-left:8px solid red;}
+
+/* QUICK */
+.quick{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+margin-top:40px;
+}
+
+.q{
+background:white;
+padding:35px;
+border-radius:20px;
+text-align:center;
+}
+
+.btn1{
+padding:14px 30px;
+background:#0B57D0;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+/* TABLE */
+.table-box{
+margin-top:40px;
+background:white;
+padding:30px;
+border-radius:20px;
+}
+
+/* USER */
+.user{
+margin-top:40px;
+background:white;
+padding:40px;
+border-radius:20px;
+text-align:center;
+}
+
+.user img{
+width:140px;
+height:140px;
+border-radius:50%;
+margin-bottom:20px;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+.sidebar{
+width:100%;
+height:auto;
+position:relative;
+}
+
+.content{
+margin-left:0;
+}
+
+.cards{
+grid-template-columns:1fr;
+}
+
+.quick{
+grid-template-columns:1fr;
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+<div class="logo">
+🏙 Smart Civic
+</div>
+
+<div class="menu">
+
+<a href="/dashboard" class="item active">🏠 Dashboard</a>
+
+<a href="/report" class="item">📝 Report Issue</a>
+
+<a href="/track" class="item">📍 Track</a>
+
+<a href="/admin" class="item">📊 Analytics</a>
+
+<a href="/profile" class="item">👤 Profile</a>
+
+<a href="/logout" class="item">🚪 Logout</a>
+
+</div>
+
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+<div class="top">
+<h1>Dashboard</h1>
+
+<div class="profile">
+🔔
+<img src="https://i.pravatar.cc/150">
+</div>
+
+</div>
+
+<!-- CARDS -->
+<div class="cards">
+
+<div class="card1 blue">
+<div class="num">145</div>
+Total Complaints
+</div>
+
+<div class="card1 green">
+<div class="num">110</div>
+Resolved
+</div>
+
+<div class="card1 orange">
+<div class="num">25</div>
+Pending
+</div>
+
+<div class="card1 red">
+<div class="num">10</div>
+Urgent
+</div>
+
+</div>
+
+<!-- QUICK -->
+<div class="quick">
+
+<div class="q">
+📝
+<h3>Report Issue</h3>
+
+<a href="/report">
+<button class="btn1">Open</button>
+</a>
+
+</div>
+
+<div class="q">
+📍
+<h3>Track Complaint</h3>
+
+<a href="/track">
+<button class="btn1">Track</button>
+</a>
+
+</div>
+
+<div class="q">
+📊
+<h3>Analytics</h3>
+
+<a href="/admin">
+<button class="btn1">View</button>
+</a>
+
+</div>
+
+</div>
+
+<!-- TABLE -->
+<div class="table-box">
+
+<h2>Recent Complaints</h2>
+
+<table class="table">
+<tr>
+<th>ID</th>
+<th>Issue</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>1001</td>
+<td>Road Damage</td>
+<td>Pending</td>
+</tr>
+
+<tr>
+<td>1002</td>
+<td>Water Leakage</td>
+<td>Resolved</td>
+</tr>
+
+<tr>
+<td>1003</td>
+<td>Street Light</td>
+<td>Processing</td>
+</tr>
+
+</table>
+
+</div>
+
+<!-- PROFILE BOX -->
+<div class="user">
+
+<img src="https://i.pravatar.cc/300">
+
+<h2>Citizen Profile</h2>
+<p>View & Update Profile</p>
+
+<a href="/profile">
+<button class="btn1">Open Profile</button>
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>

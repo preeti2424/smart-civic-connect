@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Citizen Profile - Smart Civic Connect</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f4f6f9;
+}
+
+.container {
+  width: 70%;
+  margin: 30px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.section {
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.profile-header {
+  text-align: center;
+}
+
+.profile-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #ccc;
+  margin: 10px auto;
+}
+
+.info p {
+  margin: 12px 0;
+  font-size: 16px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.box {
+  background: #e9f0ff;
+  padding: 10px;
+  border-radius: 8px;
+  width: 30%;
+}
+
+.buttons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.edit { background: #3498db; color: white; }
+.logout { background: #e74c3c; color: white; }
+
+</style>
+</head>
+
+<body>
+
+<form method="POST">
+
+<div class="container">
+
+  <h2>PROFILE</h2>
+
+  <!-- Profile Section -->
+  <div class="section profile-header">
+
+  <img src="{{ url_for('static', filename='profile_photos/' + user[4] if user[4] else 'default.png') }}"
+       style="width:120px;height:120px;border-radius:50%;object-fit:cover;">
+
+  <input type="file" name="photo">
+
+  <h3>{{ user[0] }}</h3>
+
+</div>
+  <!-- Editable Info -->
+  <div class="section info">
+
+    <label>Name</label>
+    <input type="text" name="name" value="{{ user[0] }}">
+
+    <label>Email</label>
+    <input type="text" name="email" value="{{ user[1] }}">
+
+    <label>Phone</label>
+    <input type="text" name="phone" value="{{ user[2] }}">
+
+    <label>Address</label>
+    <input type="text" name="address" value="{{ user[3] }}">
+
+  </div>
+
+  <!-- Complaint Stats -->
+  <div class="section">
+    <h3>Complaint Statistics</h3>
+
+    <div class="stats">
+
+      <div class="box">
+        <h4>Total</h4>
+        <p>10</p>
+      </div>
+
+      <div class="box">
+        <h4>Resolved</h4>
+        <p>6</p>
+      </div>
+
+      <div class="box">
+        <h4>Pending</h4>
+        <p>4</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Buttons -->
+  <div class="buttons">
+
+    <button type="submit" class="btn edit">
+      Save Profile
+    </button>
+
+    <a href="/logout">
+      <button type="button" class="btn logout">
+        Logout
+      </button>
+    </a>
+
+  </div>
+
+</div>
+
+</form>
+
+</body>
+</html>

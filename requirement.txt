@@ -1,0 +1,5 @@
+```txt
+Flask
+Flask-MySQLdb
+watchdog
+```
